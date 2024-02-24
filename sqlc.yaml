@@ -6,4 +6,4 @@ packages:
     schema: "./db/migrations"
     path: "./db/sqlc"
     emit_json_tags: true
-    emit_exact_table_names: true
+    emit_exact_table_names: false
