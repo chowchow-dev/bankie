@@ -105,7 +105,7 @@ func updateBalance(ctx context.Context, q *Queries, account1Id int64, amount1 in
 		return
 	}
 
-	account1, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{
+	account2, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{
 		ID:     account2Id,
 		Amount: amount2,
 	})
