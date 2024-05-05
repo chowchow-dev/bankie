@@ -22,4 +22,7 @@ test:
 rundbshell:
 	docker exec -it postgres12 psql -U root -d bankie
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test rundbshell
+server:
+	go run main.go
+
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc test rundbshell server
