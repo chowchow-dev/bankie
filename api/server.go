@@ -1,8 +1,8 @@
 package api
 
 import (
+	db "github.com/chowchow-dev/bankie/db/sqlc"
 	"github.com/gin-gonic/gin"
-	db "github.com/phillipngn/bankie/db/sqlc"
 )
 
 type Server struct {
