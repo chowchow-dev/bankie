@@ -1,6 +1,8 @@
 package util
 
 import (
+	"os"
+
 	"github.com/spf13/viper"
 )
 
@@ -12,7 +14,15 @@ type Config struct {
 
 func LoadConfig(path string) (config Config, err error) {
 	viper.AddConfigPath(path)
-	viper.SetConfigName("app")
+
+	if os.Getenv("ENV") == "production" {
+		viper.SetConfigName("prod")
+	} else if os.Getenv("ENV") == "development" {
+		viper.SetConfigName("dev")
+	} else {
+		viper.SetConfigName("local")
+	}
+
 	viper.SetConfigType("env")
 	viper.AutomaticEnv()
 

@@ -63,6 +63,14 @@ Simple bank service written in Golang
 
 ### How to run
 
+- Add `local.env` file:
+
+  ```env
+    DB_DRIVER=
+    DB_SOURCE=
+    SERVER_ADDRESS=
+  ```
+
 - Run server:
 
   ```bash
