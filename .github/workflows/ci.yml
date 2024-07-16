@@ -52,6 +52,7 @@ jobs:
           DB_DRIVER: ${{ secrets.DB_DRIVER }}
           DB_SOURCE: ${{ secrets.DB_SOURCE }}
           SERVER_ADDRESS: ${{ secrets.SERVER_ADDRESS }}
+        run: echo "Environment variables set"
 
       - name: Run migrations
         run: make migrateup
