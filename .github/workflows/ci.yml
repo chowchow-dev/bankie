@@ -18,9 +18,9 @@ jobs:
       postgres:
         image: postgres:12-alpine
         env:
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          POSTGRES_USER: chowchow
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: bankie
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -46,13 +46,6 @@ jobs:
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.17.1/migrate.linux-amd64.tar.gz | tar xvz
           sudo mv migrate /usr/bin/
           which migrate
-
-      - name: Set environment variables
-        env:
-          DB_DRIVER: ${{ secrets.DB_DRIVER }}
-          DB_SOURCE: ${{ secrets.DB_SOURCE }}
-          SERVER_ADDRESS: ${{ secrets.SERVER_ADDRESS }}
-        run: echo "Environment variables set"
 
       - name: Run migrations
         run: make migrateup

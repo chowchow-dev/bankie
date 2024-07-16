@@ -1,17 +1,17 @@
 postgres:
-	docker run --name postgres12 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=bankie -d postgres:12-alpine
+	docker run --name postgres12 -p 5432:5432 -e POSTGRES_USER=chowchow -e POSTGRES_PASSWORD=password -e POSTGRES_DB=bankie -d postgres:12-alpine
 
 createdb:
-	docker exec -it postgres12 createdb --username=root --owner=root bankie
+	docker exec -it postgres12 createdb --username=chowchow --owner=chowchow bankie
 
 dropdb:
 	docker exec -it postgres12 dropdb bankie
 
 migrateup:
-	migrate -path db/migrations -database "postgresql://root:secret@localhost:5432/bankie?sslmode=disable" -verbose up
+	migrate -path db/migrations -database "postgresql://chowchow:password@localhost:5432/bankie?sslmode=disable" -verbose up
 
 migratedown:
-	migrate -path db/migrations -database "postgresql://root:secret@localhost:5432/bankie?sslmode=disable" -verbose down
+	migrate -path db/migrations -database "postgresql://chowchow:password@localhost:5432/bankie?sslmode=disable" -verbose down
 
 sqlc:
 	sqlc generate
@@ -20,7 +20,7 @@ test:
 	go test -v -cover ./...
 
 rundbshell:
-	docker exec -it postgres12 psql -U root -d bankie
+	docker exec -it postgres12 psql -U chowchow -d bankie
 
 server:
 	go run main.go

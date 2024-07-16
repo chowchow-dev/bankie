@@ -1,1 +1,6 @@
-*.env
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
