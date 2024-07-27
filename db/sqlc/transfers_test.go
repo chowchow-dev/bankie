@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/chowchow-dev/bankie/util"
+	_ "github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/require"
 )
 

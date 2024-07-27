@@ -8,6 +8,8 @@ import (
 
 	"github.com/chowchow-dev/bankie/util"
 	"github.com/stretchr/testify/require"
+
+	_ "github.com/golang/mock/gomock"
 )
 
 func createRandomAccount(t *testing.T) Account {

@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/chowchow-dev/bankie/util"
+	_ "github.com/golang/mock/gomock"
 	_ "github.com/lib/pq"
 )
 
