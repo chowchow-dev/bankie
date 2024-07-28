@@ -25,4 +25,7 @@ rundbshell:
 server:
 	go run main.go
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test rundbshell server
+mockgen:
+	mockgen -destination db/mock/store.go github.com/chowchow-dev/bankie/db/sqlc Store
+
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc test rundbshell server mockgen
